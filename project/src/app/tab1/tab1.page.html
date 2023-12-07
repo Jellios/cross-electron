@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <form [formGroup]="form" (ngSubmit)="onSaveSettings()">
+    <ion-list>
+      <ion-item lines="full" class="form-group">
+        <ion-label position="stacked">Number of dice:</ion-label>
+        <ion-input formControlName="nOfDie" type="number" name="nOfDie" id="nOfDie"  class="form-control" required></ion-input>
+        <!--<ion-alert *ngIf="!nOfDie.valid && nOfDie.touched">Not valid</ion-alert> -->
+      </ion-item>
+      <ion-item lines="full" class="form-group">
+        <ion-label position="stacked">Reason for throw:</ion-label>
+        <ion-input type="text" formControlName="reason" name="reason" id="reason" class="form-control"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" type="submit">Save settings</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="full" type="reset">Reset settings</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="full" type="button">Empty list</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </form>
+  
+  
+  <ion-item>
+    <ion-label>reply = {{reply}}</ion-label>
+</ion-item>
+<ion-item>
+    <ion-label>Electron version = {{electronVersion}}</ion-label>
+</ion-item>
+  
+ 
+</ion-content>

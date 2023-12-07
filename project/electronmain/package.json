@@ -1,0 +1,11 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "A dice thrower in ionic and electron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"hello world\";"
+  },
+  "author": "Jelle Wellens",
+  "license": "ISC"
+}

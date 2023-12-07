@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <div class="dice-container">
+      <div class="grid-container">
+        <app-dice-draw *ngFor="let item of values; let i = index" [canvasID]="ids[i]" [diceValue]="item"></app-dice-draw>
+      </div>
+      <ion-button style="width: 100%;" (click)="RollDices()">RollDices</ion-button>
+    </div>
+    <div class="list-container">
+      <ion-grid style="overflow-y: scroll; height: 100%;" *ngIf="screenOrientation() == 'landscape-primary' && screenWidth() >= 690">
+        <ion-row>
+          <ion-col><b># Throw</b></ion-col>
+          <ion-col><b># Dices</b></ion-col>
+          <ion-col><b>Total</b></ion-col>
+          <ion-col><b>Total 1's</b></ion-col>
+          <ion-col><b>Total 2's</b></ion-col>
+          <ion-col><b>Total 3's</b></ion-col>
+          <ion-col><b>Total 4's</b></ion-col>
+          <ion-col><b>Total 5's</b></ion-col>
+          <ion-col><b>Total 6's</b></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let throw of ThrowerService.throws">
+          <ion-col>{{ throw.numberThrow }}</ion-col>
+          <ion-col>{{ throw.numberDices }}</ion-col>
+          <ion-col>{{ throw.totalNumberOfEyes }}</ion-col>
+          <ion-col>{{ throw.total1WasThrowed }}</ion-col>
+          <ion-col>{{ throw.total2WasThrowed }}</ion-col>
+          <ion-col>{{ throw.total3WasThrowed }}</ion-col>
+          <ion-col>{{ throw.total4WasThrowed }}</ion-col>
+          <ion-col>{{ throw.total5WasThrowed }}</ion-col>
+          <ion-col>{{ throw.total6WasThrowed }}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <div *ngIf="screenOrientation() != 'landscape-primary' || screenWidth() < 690">
+        <ion-list *ngFor="let throw of ThrowerService.throws">
+          <ion-item-divider button (click)="toggleGroup(throw)">
+            <ion-label>
+              <h2><b>Throw: </b>{{ throw.numberThrow }}</h2>
+            </ion-label>
+          </ion-item-divider>
+          <div *ngIf="isGroupShown(throw)">
+            <ion-item># Dices: {{ throw.numberDices }}</ion-item>
+            <ion-item>Total: {{ throw.totalNumberOfEyes }}</ion-item>
+            <ion-item>Total 1's: {{ throw.total1WasThrowed }}</ion-item>
+            <ion-item>Total 2's: {{ throw.total2WasThrowed }}</ion-item>
+            <ion-item>Total 3's: {{ throw.total3WasThrowed }}</ion-item>
+            <ion-item>Total 4's: {{ throw.total4WasThrowed }}</ion-item>
+            <ion-item>Total 5's: {{ throw.total5WasThrowed }}</ion-item>
+            <ion-item>Total 6's: {{ throw.total6WasThrowed }}</ion-item>
+          </div>
+        </ion-list>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>
+ 
+ 
