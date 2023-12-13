@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 3
+    </ion-title>
+  </ion-toolbar>
+ </ion-header>
+ 
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 3</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<!--  <ion-button (click)="writeSecretFile()">Save Throws to file</ion-button> -->
+<ion-button (click)="presentModal()">Save Throws To File</ion-button>
+ 
+ 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Saved lists:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list >
+    
+        <ion-item *ngFor=" let filename of fileList" (click)="loadThrows(filename.name)">
+          <div class="centered-item">
+            {{filename.name}}
+          </div> 
+         </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+ </ion-content>
+ 

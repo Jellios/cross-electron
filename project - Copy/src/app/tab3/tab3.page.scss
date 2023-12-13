@@ -1,0 +1,21 @@
+.centered-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2em;
+    margin-top: 2%;
+  }
+  ion-card
+  {
+    height: 50%;
+    overflow-y: scroll;
+  }
+  ion-card-content
+  {
+   
+    overflow-y: scroll;
+  }
+  ion-list {
+    margin-top: 10%;
+  }
